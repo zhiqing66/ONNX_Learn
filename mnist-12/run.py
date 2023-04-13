@@ -15,4 +15,5 @@ ort_session = onnxruntime.InferenceSession("mnist-12.onnx")
 ort_inputs = {graph.input[0].name: input}
 ort_output = ort_session.run([graph.output[0].name], ort_inputs)
 
-print(ort_output)
+num = np.argmax(ort_output)
+print("the number is: " + str(num))
